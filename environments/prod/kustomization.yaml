@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../namespaces/invoice-analyzer-prod.yaml
+  - frontend
+  - backend
+  - database
+  - ingress
+  - monitoring
+  - rbac
+  - network-policies
+
+commonLabels:
+  environment: prod
+  managed-by: argocd

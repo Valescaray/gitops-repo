@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: invoice-analyzer
+  annotations:
+    alb.ingress.kubernetes.io/certificate-arn: <PROD_CERTIFICATE_ARN>
+    external-dns.alpha.kubernetes.io/hostname: oppsdev.xyz
+    alb.ingress.kubernetes.io/security-groups: <PROD_SECURITY_GROUP_ID>
+    alb.ingress.kubernetes.io/tags: Environment=prod,Application=invoice-analyzer
+    alb.ingress.kubernetes.io/wafv2-acl-arn: <WAF_ACL_ARN>
+spec:
+  rules:
+  - host: oppsdev.xyz
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 8000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80

@@ -1,0 +1,47 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: invoice-analyzer-alerts
+  labels:
+    app: invoice-analyzer
+    prometheus: prometheus
+spec:
+  groups:
+  - name: invoice-analyzer
+    interval: 30s
+    rules:
+    - alert: HighErrorRate
+      expr: |
+        sum(rate(http_requests_total{status=~"5.."}[5m])) by (service)
+        /
+        sum(rate(http_requests_total[5m])) by (service)
+        > 0.05
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High error rate detected"
+        description: "{{ $labels.service }} has error rate above 5% (current: {{ $value }})"
+    
+    - alert: HighMemoryUsage
+      expr: |
+        container_memory_usage_bytes{pod=~".*invoice-analyzer.*"}
+        /
+        container_spec_memory_limit_bytes{pod=~".*invoice-analyzer.*"}
+        > 0.9
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High memory usage detected"
+        description: "{{ $labels.pod }} is using {{ $value | humanizePercentage }} of memory"
+    
+    - alert: PodCrashLooping
+      expr: |
+        rate(kube_pod_container_status_restarts_total{namespace=~"invoice-analyzer-.*"}[15m]) > 0
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Pod is crash looping"
+        description: "{{ $labels.pod }} in {{ $labels.namespace }} is restarting frequently"

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  labels:
+    app: invoice-analyzer
+    component: frontend
+data:
+  VITE_APP_API_URL: "http://backend:8000"
+  VITE_APP_ENV: "base"

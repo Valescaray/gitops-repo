@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    app: invoice-analyzer
+    component: database
+data:
+  database-name: "invoice_analyzer"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-scripts
+  labels:
+    app: invoice-analyzer
+    component: database
+data:
+  01-init.sql: |
+    -- Create extensions
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+    
+    -- Create schema
+    CREATE SCHEMA IF NOT EXISTS invoice_analyzer;
+    
+    -- Set search path
+    ALTER DATABASE invoice_analyzer SET search_path TO invoice_analyzer, public;

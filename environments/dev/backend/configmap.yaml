@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  APP_ENV: "development"
+  LOG_LEVEL: "DEBUG"
+  FIREBASE_PROJECT_ID: "langchain-project-ea742"
+  FIREBASE_CLIENT_EMAIL: "firebase-adminsdk-fbsvc@langchain-project-ea742.iam.gserviceaccount.com"
+  CORS_ORIGINS: "*"
+  DATABASE_POOL_SIZE: "5"
+  DATABASE_MAX_OVERFLOW: "10"
+  AWS_REGION: "us-west-2"
+  S3_BUCKET_NAME: "invoice-analyzer-uploads-dev"
