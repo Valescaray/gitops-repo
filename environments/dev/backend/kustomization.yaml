@@ -13,3 +13,8 @@ patchesStrategicMerge:
 
 commonLabels:
   environment: dev
+
+images:
+  - name: <REGISTRY>/invoice-analyzer-backend
+    newName: 889039329094.dkr.ecr.us-west-2.amazonaws.com/invoice-analyzer-backend
+    newTag: latest

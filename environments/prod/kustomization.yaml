@@ -14,3 +14,4 @@ resources:
 commonLabels:
   environment: prod
   managed-by: argocd
+
