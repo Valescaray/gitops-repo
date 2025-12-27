@@ -3,18 +3,18 @@ kind: Kustomization
 
 namespace: invoice-analyzer-dev
 
-bases:
-  - ../../../base/frontend
 
 patchesStrategicMerge:
-  - deployment.yaml
-  - configmap.yaml
-  - hpa.yaml
+- deployment.yaml
+- configmap.yaml
+- hpa.yaml
 
 commonLabels:
   environment: dev
 
 images:
-  - name: <REGISTRY>/invoice-analyzer-frontend
-    newName: 889039329094.dkr.ecr.us-west-2.amazonaws.com/invoice-analyzer-frontend
-    newTag: latest
+- name: <REGISTRY>/invoice-analyzer-frontend
+  newName: 889039329094.dkr.ecr.us-west-2.amazonaws.com/invoice-analyzer-frontend
+  newTag: "29"
+resources:
+- ../../../base/frontend
