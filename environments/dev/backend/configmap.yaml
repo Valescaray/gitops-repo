@@ -11,4 +11,4 @@ data:
   DATABASE_POOL_SIZE: "5"
   DATABASE_MAX_OVERFLOW: "10"
   AWS_REGION: "us-west-2"
-  S3_BUCKET_NAME: "invoice-analyzer-uploads-dev"
+  S3_BUCKET_NAME: "invoice-analyzer-dev-uploads"

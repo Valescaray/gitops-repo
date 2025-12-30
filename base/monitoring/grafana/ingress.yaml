@@ -14,7 +14,7 @@ metadata:
     alb.ingress.kubernetes.io/security-groups: <SECURITY_GROUP_ID>
 spec:
   rules:
-  - host: grafana.<DOMAIN_NAME>
+  - host: grafana.oppsdev.xyz
     http:
       paths:
       - path: /

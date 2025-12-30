@@ -15,9 +15,8 @@ spec:
   - Egress
   ingress:
   - from:
-    - namespaceSelector:
-        matchLabels:
-          name: ingress-nginx
+    - ipBlock: # Allow traffic from ALB (Client IPs preserved)
+        cidr: 0.0.0.0/0
     ports:
     - protocol: TCP
       port: 80

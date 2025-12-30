@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: <REGISTRY>/invoice-analyzer-frontend:latest
+        image: invoice-analyzer-frontend
         ports:
         - containerPort: 80
           name: http

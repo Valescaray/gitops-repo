@@ -2,6 +2,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: db-migration
+  labels:
+    app: invoice-analyzer
+    component: backend
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -12,7 +15,7 @@ spec:
       serviceAccountName: backend
       containers:
       - name: migration
-        image: <REGISTRY>/invoice-analyzer-backend:latest
+        image: invoice-analyzer-backend
         command: ["alembic", "upgrade", "head"]
         envFrom:
         - configMapRef:

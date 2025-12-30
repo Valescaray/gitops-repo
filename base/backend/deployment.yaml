@@ -24,7 +24,7 @@ spec:
       serviceAccountName: backend
       containers:
       - name: backend
-        image: <REGISTRY>/invoice-analyzer-backend:latest
+        image: invoice-analyzer-backend
         ports:
         - containerPort: 8000
           name: http

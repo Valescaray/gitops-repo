@@ -7,7 +7,7 @@ metadata:
     external-dns.alpha.kubernetes.io/hostname: oppsdev.xyz
     alb.ingress.kubernetes.io/security-groups: <PROD_SECURITY_GROUP_ID>
     alb.ingress.kubernetes.io/tags: Environment=prod,Application=invoice-analyzer
-    alb.ingress.kubernetes.io/wafv2-acl-arn: <WAF_ACL_ARN>
+  
 spec:
   rules:
   - host: oppsdev.xyz

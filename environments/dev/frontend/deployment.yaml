@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: <REGISTRY>/invoice-analyzer-frontend:dev-latest
+        image: invoice-analyzer-frontend
         resources:
           requests:
             memory: "64Mi"

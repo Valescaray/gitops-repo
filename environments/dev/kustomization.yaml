@@ -10,6 +10,7 @@ resources:
   - monitoring
   - rbac
   - network-policies
+  - external-secrets
 
 commonLabels:
   environment: dev
