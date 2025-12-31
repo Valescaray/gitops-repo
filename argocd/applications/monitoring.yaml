@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<YOUR_ORG>/invoice-analyzer-gitops.git
+    repoURL: https://github.com/Valescaray/gitops-repo
     targetRevision: main
     path: environments/dev/monitoring
   destination:
