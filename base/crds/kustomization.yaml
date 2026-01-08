@@ -5,6 +5,7 @@ resources:
   - prometheusrule-crd.yaml
   - servicemonitor-crd.yaml
   - externalsecret-crd.yaml
+  - prometheus-crd.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize

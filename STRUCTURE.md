@@ -4,6 +4,7 @@
 gitops-repo/
 ├── argocd/
 │   ├── applications/
+│   │   ├── crds.yaml
 │   │   ├── invoice-analyzer-dev.yaml
 │   │   ├── invoice-analyzer-prod.yaml
 │   │   └── monitoring.yaml
@@ -19,6 +20,11 @@ gitops-repo/
 │   │   ├── service.yaml
 │   │   ├── serviceaccount.yaml
 │   │   └── servicemonitor.yaml
+│   ├── crds/
+│   │   ├── externalsecret-crd.yaml
+│   │   ├── kustomization.yaml
+│   │   ├── prometheusrule-crd.yaml
+│   │   └── servicemonitor-crd.yaml
 │   │
 │   ├── database/
 │   │   ├── configmap.yaml
@@ -156,8 +162,8 @@ gitops-repo/
 
 ### Key Components:
 - **3 Namespaces**: dev, prod, monitoring
-- **3 ArgoCD Applications**: dev, prod, monitoring
-- **8 Base Components**: frontend, backend, database, ingress, monitoring (Prometheus + Grafana), RBAC, network policies, external secrets
+- **4 ArgoCD Applications**: dev, prod, monitoring, crds
+- **9 Base Components**: frontend, backend, database, ingress, monitoring (Prometheus + Grafana), RBAC, network policies, external secrets, CRD management
 - **2 Environments**: dev and prod with full overlays
 - **Comprehensive Documentation**: README files and configuration checklist
 
