@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: monitoring
 
 bases:
+  - ../../../base/crds
   - ../../../base/monitoring/prometheus-operator
   - ../../../base/monitoring/grafana
 
