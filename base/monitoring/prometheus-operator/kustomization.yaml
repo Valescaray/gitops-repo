@@ -4,9 +4,14 @@ kind: Kustomization
 namespace: monitoring
 
 resources:
+  # Prometheus Operator resources (must be deployed first)
+  - operator-rbac.yaml
+  - operator-deployment.yaml
+  - operator-service.yaml
+  # Prometheus instance resources
+  - rbac.yaml
   - prometheus.yaml
   - service.yaml
-  - rbac.yaml
   - configmap.yaml
   - prometheusrule.yaml
 
