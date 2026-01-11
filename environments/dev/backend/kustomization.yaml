@@ -4,11 +4,23 @@ kind: Kustomization
 namespace: invoice-analyzer-dev
 
 
-patchesStrategicMerge:
-- deployment.yaml
-- configmap.yaml
-- hpa.yaml
-- serviceaccount.yaml
+patches:
+- path: deployment.yaml
+  target:
+    kind: Deployment
+    name: backend
+- path: configmap.yaml
+  target:
+    kind: ConfigMap
+    name: backend-config
+- path: hpa.yaml
+  target:
+    kind: HorizontalPodAutoscaler
+    name: backend-hpa
+- path: serviceaccount.yaml
+  target:
+    kind: ServiceAccount
+    name: backend-sa
 
 commonLabels:
   environment: dev
