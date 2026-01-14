@@ -4,8 +4,78 @@ kind: Kustomization
 resources:
   - ../dev
 
+namespace: invoice-analyzer-dev
+
 patches:
+  # Fix SecretStore for Minikube
   - path: secretstore-patch.yaml
     target:
       kind: SecretStore
       name: aws-secretsmanager
+  
+  # Fix all PVC storage classes
+  - patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: standard
+    target:
+      kind: PersistentVolumeClaim
+  
+  # Fix StatefulSet storage class and accessModes
+  - patch: |-
+      - op: replace
+        path: /spec/volumeClaimTemplates/0/spec/storageClassName
+        value: standard
+      - op: add
+        path: /spec/volumeClaimTemplates/0/spec/accessModes
+        value: ["ReadWriteOnce"]
+    target:
+      kind: StatefulSet
+      name: postgres
+  
+  # Remove EKS IRSA annotations from ServiceAccounts
+  - patch: |-
+      - op: remove
+        path: /metadata/annotations/eks.amazonaws.com~1role-arn
+    target:
+      kind: ServiceAccount
+      name: backend-sa
+  
+  # Add imagePullSecrets to backend deployment
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value:
+          - name: ecr-registry-secret
+    target:
+      kind: Deployment
+      name: backend
+  
+  # Add imagePullSecrets to frontend deployment
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value:
+          - name: ecr-registry-secret
+    target:
+      kind: Deployment
+      name: frontend
+  
+  # Add imagePullSecrets to migration job
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value:
+          - name: ecr-registry-secret
+    target:
+      kind: Job
+      name: db-migration
+  
+  # Disable LoadBalancer service (use NodePort for Minikube)
+  - patch: |-
+      - op: replace
+        path: /spec/type
+        value: NodePort
+    target:
+      kind: Service
+      name: postgres-lb
