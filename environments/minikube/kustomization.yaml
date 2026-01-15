@@ -7,6 +7,31 @@ resources:
 namespace: invoice-analyzer-dev
 
 patches:
+  # Override SecretStore for Minikube (using AWS credentials from secret)
+  - target:
+      kind: SecretStore
+      name: aws-secretsmanager
+    patch: |-
+      - op: replace
+        path: /spec/provider/aws/auth
+        value:
+          secretRef:
+            accessKeyIDSecretRef:
+              name: aws-creds
+              key: access-key
+            secretAccessKeySecretRef:
+              name: aws-creds
+              key: secret-key
+  
+  # Remove EKS IRSA annotation from external-secrets ServiceAccount
+  - target:
+      kind: ServiceAccount
+      name: external-secrets-sa
+    patch: |-
+      - op: remove
+        path: /metadata/annotations/eks.amazonaws.com~1role-arn
+
+patches:
   # Fix SecretStore for Minikube
   - path: secretstore-patch.yaml
     target:

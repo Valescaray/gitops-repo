@@ -5,6 +5,7 @@ namespace: invoice-analyzer-dev
 
 resources:
   - namespace.yaml
+  - external-secrets
   - backend
   - database
   - frontend
