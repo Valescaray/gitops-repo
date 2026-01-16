@@ -7,7 +7,7 @@ resources:
 namespace: invoice-analyzer-dev
 
 patches:
-  # Override SecretStore for Minikube (using AWS credentials from secret)
+  # Override SecretStore for Minikube
   - target:
       kind: SecretStore
       name: aws-secretsmanager
@@ -30,15 +30,8 @@ patches:
     patch: |-
       - op: remove
         path: /metadata/annotations/eks.amazonaws.com~1role-arn
-
-patches:
-  # Fix SecretStore for Minikube
-  - path: secretstore-patch.yaml
-    target:
-      kind: SecretStore
-      name: aws-secretsmanager
   
-  # Fix all PVC storage classes
+  # Fix all PVCs in invoice-analyzer-dev namespace
   - patch: |-
       - op: replace
         path: /spec/storageClassName
@@ -46,19 +39,16 @@ patches:
     target:
       kind: PersistentVolumeClaim
   
-  # Fix StatefulSet storage class and accessModes
+  # Fix StatefulSet storage class
   - patch: |-
       - op: replace
         path: /spec/volumeClaimTemplates/0/spec/storageClassName
         value: standard
-      - op: add
-        path: /spec/volumeClaimTemplates/0/spec/accessModes
-        value: ["ReadWriteOnce"]
     target:
       kind: StatefulSet
       name: postgres
   
-  # Remove EKS IRSA annotations from ServiceAccounts
+  # Remove EKS IRSA annotations from backend ServiceAccount
   - patch: |-
       - op: remove
         path: /metadata/annotations/eks.amazonaws.com~1role-arn
@@ -96,7 +86,7 @@ patches:
       kind: Job
       name: db-migration
   
-  # Disable LoadBalancer service (use NodePort for Minikube)
+  # Change LoadBalancer to NodePort
   - patch: |-
       - op: replace
         path: /spec/type
