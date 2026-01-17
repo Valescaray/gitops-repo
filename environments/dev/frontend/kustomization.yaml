@@ -15,6 +15,6 @@ commonLabels:
 images:
 - name: invoice-analyzer-frontend
   newName: 889039329094.dkr.ecr.us-west-2.amazonaws.com/invoice-analyzer-frontend
-  newTag: "29"
+  newTag: "28"
 resources:
 - ../../../base/frontend
