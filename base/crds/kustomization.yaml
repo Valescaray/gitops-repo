@@ -4,9 +4,11 @@ kind: Kustomization
 resources:
   - prometheusrule-crd.yaml
   - servicemonitor-crd.yaml
-  - externalsecret-crd.yaml
   - prometheus-crd.yaml
   - podmonitor-crd.yaml
+  - externalsecret-crd.yaml
+  - secretstore-crd.yaml
+  - clustersecretstore-crd.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize

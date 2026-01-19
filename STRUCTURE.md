@@ -5,6 +5,7 @@ gitops-repo/
 ├── argocd/
 │   ├── applications/
 │   │   ├── crds.yaml
+│   │   ├── external-secrets-operator.yaml
 │   │   ├── invoice-analyzer-dev.yaml
 │   │   ├── invoice-analyzer-prod.yaml
 │   │   └── monitoring.yaml
@@ -23,6 +24,8 @@ gitops-repo/
 │   │   └── servicemonitor.yaml
 │   ├── crds/
 │   │   ├── externalsecret-crd.yaml
+│   │   ├── secretstore-crd.yaml
+│   │   ├── clustersecretstore-crd.yaml
 │   │   ├── kustomization.yaml
 │   │   ├── podmonitor-crd.yaml
 │   │   ├── prometheus-crd.yaml
@@ -40,6 +43,9 @@ gitops-repo/
 │   │
 │   ├── external-secrets/
 │   │   ├── kustomization.yaml
+│   │   ├── operator-deployment.yaml
+│   │   ├── operator-rbac.yaml
+│   │   ├── operator-service.yaml
 │   │   ├── secretstore.yaml
 │   │   └── serviceaccount.yaml
 │   │
