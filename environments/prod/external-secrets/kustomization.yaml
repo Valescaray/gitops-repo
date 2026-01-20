@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# The External Secrets Operator is now deployed via Helm chart (see argocd/applications/external-secrets-operator.yaml)
+# This kustomization only manages the application-specific SecretStore configuration
+
 resources:
 - ../../../base/external-secrets
 
-patchesStrategicMerge:
-- serviceaccount.yaml

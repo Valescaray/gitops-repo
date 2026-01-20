@@ -1,0 +1,10 @@
+# External Secrets Operator - Dev Environment Values
+# These values override the default Helm chart values for the dev environment
+
+# Note: The main operator configuration is in the ArgoCD application
+# This file is for any additional dev-specific overrides
+
+# Example: If you need to add more service account annotations
+# serviceAccount:
+#   annotations:
+#     additional-annotation: value

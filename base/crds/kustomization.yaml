@@ -1,14 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# External Secrets CRDs are now managed by the Helm chart (installCRDs: true)
+# Only Prometheus Operator CRDs are managed here
+
 resources:
   - prometheusrule-crd.yaml
   - servicemonitor-crd.yaml
   - prometheus-crd.yaml
   - podmonitor-crd.yaml
-  - externalsecret-crd.yaml
-  - secretstore-crd.yaml
-  - clustersecretstore-crd.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize
+
