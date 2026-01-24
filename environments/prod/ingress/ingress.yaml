@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: invoice-analyzer
   annotations:
-    alb.ingress.kubernetes.io/certificate-arn: <PROD_CERTIFICATE_ARN>
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:889039329094:certificate/3def5ba0-c8f6-4b97-9cc7-755daa548b8d
     external-dns.alpha.kubernetes.io/hostname: oppsdev.xyz
-    alb.ingress.kubernetes.io/security-groups: <PROD_SECURITY_GROUP_ID>
+    # alb.ingress.kubernetes.io/security-groups: <PROD_SECURITY_GROUP_ID>
     alb.ingress.kubernetes.io/tags: Environment=prod,Application=invoice-analyzer
   
 spec:

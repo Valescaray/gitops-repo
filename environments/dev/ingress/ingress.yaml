@@ -5,7 +5,7 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:889039329094:certificate/3def5ba0-c8f6-4b97-9cc7-755daa548b8d
     external-dns.alpha.kubernetes.io/hostname: dev.oppsdev.xyz
-    alb.ingress.kubernetes.io/security-groups: sg-092d94d10bd0049a2
+    # alb.ingress.kubernetes.io/security-groups: sg-092d94d10bd0049a2
     alb.ingress.kubernetes.io/tags: Environment=dev,Application=invoice-analyzer
 spec:
   rules:

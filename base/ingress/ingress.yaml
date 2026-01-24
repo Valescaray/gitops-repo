@@ -20,7 +20,7 @@ metadata:
     # Certificate ARN (to be overridden in environment-specific overlays)
     alb.ingress.kubernetes.io/certificate-arn: <CERTIFICATE_ARN>
     # Security groups
-    alb.ingress.kubernetes.io/security-groups: <SECURITY_GROUP_ID>
+    # alb.ingress.kubernetes.io/security-groups: <SECURITY_GROUP_ID>
     # Tags
     alb.ingress.kubernetes.io/tags: Environment=base,Application=invoice-analyzer
 spec:

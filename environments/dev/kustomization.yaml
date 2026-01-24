@@ -12,6 +12,7 @@ resources:
   - ingress
   - network-policies
   - rbac
+  - storage
 
 commonLabels:
   environment: dev

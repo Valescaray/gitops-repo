@@ -11,7 +11,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:889039329094:certificate/3def5ba0-c8f6-4b97-9cc7-755daa548b8d
-    alb.ingress.kubernetes.io/security-groups: sg-092d94d10bd0049a2
+    # alb.ingress.kubernetes.io/security-groups: sg-092d94d10bd0049a2
 spec:
   rules:
   - host: grafana.oppsdev.xyz
