@@ -23,9 +23,6 @@ gitops-repo/
 │   │   ├── serviceaccount.yaml
 │   │   └── servicemonitor.yaml
 │   ├── crds/
-│   │   ├── externalsecret-crd.yaml
-│   │   ├── secretstore-crd.yaml
-│   │   ├── clustersecretstore-crd.yaml
 │   │   ├── kustomization.yaml
 │   │   ├── podmonitor-crd.yaml
 │   │   ├── prometheus-crd.yaml
@@ -43,11 +40,7 @@ gitops-repo/
 │   │
 │   ├── external-secrets/
 │   │   ├── kustomization.yaml
-│   │   ├── operator-deployment.yaml
-│   │   ├── operator-rbac.yaml
-│   │   ├── operator-service.yaml
-│   │   ├── secretstore.yaml
-│   │   └── serviceaccount.yaml
+│   │   └── secretstore.yaml
 │   │
 │   ├── frontend/
 │   │   ├── configmap.yaml
@@ -94,35 +87,22 @@ gitops-repo/
 │   │
 │   └── README.md
 │
+├── charts/
+│   └── external-secrets/
+│       ├── templates/
+│       ├── Chart.yaml
+│       └── values.yaml
+│
 ├── environments/
 │   ├── dev/
 │   │   ├── backend/
-│   │   │   ├── configmap.yaml
-│   │   │   ├── deployment.yaml
-│   │   │   ├── hpa.yaml
-│   │   │   ├── kustomization.yaml
-│   │   │   └── serviceaccount.yaml
 │   │   ├── database/
-│   │   │   ├── kustomization.yaml
-│   │   │   └── statefulset.yaml
 │   │   ├── external-secrets/
-│   │   │   ├── kustomization.yaml
-│   │   │   └── serviceaccount.yaml
 │   │   ├── frontend/
-│   │   │   ├── configmap.yaml
-│   │   │   ├── deployment.yaml
-│   │   │   ├── hpa.yaml
-│   │   │   └── kustomization.yaml
 │   │   ├── ingress/
-│   │   │   ├── ingress.yaml
-│   │   │   └── kustomization.yaml
 │   │   ├── monitoring/
-│   │   │   ├── kustomization.yaml
-│   │   │   └── namespace.yaml
 │   │   ├── network-policies/
-│   │   │   └── kustomization.yaml
 │   │   ├── rbac/
-│   │   │   └── kustomization.yaml
 │   │   ├── kustomization.yaml
 │   │   └── namespace.yaml
 │   │
@@ -132,31 +112,13 @@ gitops-repo/
 │   │
 │   └── prod/
 │       ├── backend/
-│       │   ├── configmap.yaml
-│       │   ├── deployment.yaml
-│       │   ├── hpa.yaml
-│       │   ├── kustomization.yaml
-│       │   └── serviceaccount.yaml
 │       ├── database/
-│       │   ├── kustomization.yaml
-│       │   └── statefulset.yaml
 │       ├── external-secrets/
-│       │   ├── kustomization.yaml
-│       │   └── serviceaccount.yaml
 │       ├── frontend/
-│       │   ├── configmap.yaml
-│       │   ├── deployment.yaml
-│       │   ├── hpa.yaml
-│       │   └── kustomization.yaml
 │       ├── ingress/
-│       │   ├── ingress.yaml
-│       │   └── kustomization.yaml
 │       ├── monitoring/
-│       │   └── kustomization.yaml
 │       ├── network-policies/
-│       │   └── kustomization.yaml
 │       ├── rbac/
-│       │   └── kustomization.yaml
 │       ├── kustomization.yaml
 │       └── namespace.yaml
 │
@@ -175,9 +137,10 @@ gitops-repo/
 
 ### Key Components:
 - **3 Namespaces**: dev, prod, monitoring
-- **4 ArgoCD Applications**: dev, prod, monitoring, crds
-- **9 Base Components**: frontend, backend (+ migration), database, ingress, monitoring (Prometheus Operator + Grafana), RBAC, network policies, external secrets, CRD management
+- **5 ArgoCD Applications**: dev, prod, monitoring, crds, external-secrets-operator
+- **10 Base Components**: frontend, backend (+ migration), database, ingress, monitoring (Prometheus Operator + Grafana), RBAC, network policies, external secrets, CRD management, storage
 - **3 Environments**: dev, prod, and minikube with overlays
+- **Helm Charts**: Vendored charts for external components (e.g., External Secrets)
 - **Comprehensive Documentation**: README files and configuration checklist
 
 ### Features Implemented:
