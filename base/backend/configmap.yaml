@@ -5,6 +5,8 @@ metadata:
   labels:
     app: invoice-analyzer
     component: backend
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 data:
   APP_ENV: "base"
   LOG_LEVEL: "INFO"

@@ -5,6 +5,7 @@ kind: Kustomization
 # This only contains the application-specific SecretStore configuration
 
 resources:
+  - serviceaccount.yaml
   - secretstore.yaml
 
 commonLabels:
