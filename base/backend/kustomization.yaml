@@ -7,7 +7,6 @@ resources:
   - configmap.yaml
   - external-secret.yaml
   - hpa.yaml
-  - serviceaccount.yaml
   - servicemonitor.yaml
   - migration-job.yaml
 

@@ -17,10 +17,7 @@ patches:
   target:
     kind: HorizontalPodAutoscaler
     name: backend-hpa
-- path: serviceaccount.yaml
-  target:
-    kind: ServiceAccount
-    name: backend-sa
+
 
 commonLabels:
   environment: dev
