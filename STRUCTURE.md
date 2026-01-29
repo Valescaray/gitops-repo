@@ -85,6 +85,10 @@ gitops-repo/
 │   │   ├── roles.yaml
 │   │   └── serviceaccounts.yaml
 │   │
+│   ├── storage/
+│   │   ├── gp3.yaml
+│   │   └── kustomization.yaml
+│   │
 │   └── README.md
 │
 ├── charts/
@@ -103,6 +107,7 @@ gitops-repo/
 │   │   ├── monitoring/
 │   │   ├── network-policies/
 │   │   ├── rbac/
+│   │   ├── storage/
 │   │   ├── kustomization.yaml
 │   │   └── namespace.yaml
 │   │
