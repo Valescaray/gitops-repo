@@ -26,4 +26,5 @@ roleRef:
   name: backend-role
 subjects:
 - kind: ServiceAccount
-  name: backend
+  name: backend-sa
+  namespace: invoice-analyzer-dev 
