@@ -25,6 +25,6 @@ commonLabels:
 images:
 - name: invoice-analyzer-backend
   newName: 889039329094.dkr.ecr.us-west-2.amazonaws.com/invoice-analyzer-backend
-  newTag: "28"
+  newTag: "latest"
 resources:
 - ../../../base/backend
