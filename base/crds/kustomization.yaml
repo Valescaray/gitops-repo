@@ -9,6 +9,13 @@ resources:
   - servicemonitor-crd.yaml
   - prometheus-crd.yaml
   - podmonitor-crd.yaml
+  - alertmanager-crd.yaml
+  - alertmanagerconfig-crd.yaml
+  - thanosruler-crd.yaml
+  - scrapeconfig-crd.yaml
+  - prometheusagent-crd.yaml
+  - probe-crd.yaml
+
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize

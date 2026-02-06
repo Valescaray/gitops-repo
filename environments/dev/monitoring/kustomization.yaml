@@ -8,6 +8,8 @@ bases:
   - ../../../base/crds
   - ../../../base/monitoring/prometheus-operator
   - ../../../base/monitoring/grafana
+  - ../../../base/monitoring/node-exporter
+  - ../../../base/monitoring/kube-state-metrics
   - serviceaccount.yaml
   - secretstore.yaml
 

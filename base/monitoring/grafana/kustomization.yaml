@@ -13,3 +13,9 @@ resources:
 
 commonLabels:
   app: grafana
+
+configMapGenerator:
+  - name: grafana-dashboards-standard
+    files:
+      - dashboards/node-exporter-full.json
+      - dashboards/k8s-cluster.json
