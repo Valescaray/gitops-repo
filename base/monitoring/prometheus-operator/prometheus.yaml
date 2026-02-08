@@ -9,15 +9,9 @@ spec:
   scrapeInterval: "30s"
   evaluationInterval: "30s"
   serviceAccountName: prometheus
-  serviceMonitorSelector:
-    matchLabels:
-      app: invoice-analyzer
-  podMonitorSelector:
-    matchLabels:
-      app: invoice-analyzer
-  ruleSelector:
-    matchLabels:
-      app: invoice-analyzer
+  serviceMonitorSelector: {}
+  podMonitorSelector: {}
+  ruleSelector: {}
   resources:
     requests:
       memory: 400Mi
