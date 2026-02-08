@@ -3,6 +3,8 @@ kind: CustomResourceDefinition
 metadata:
   name: prometheuses.monitoring.coreos.com
   annotations:
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=true
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   group: monitoring.coreos.com

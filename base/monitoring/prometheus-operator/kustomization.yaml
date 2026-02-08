@@ -11,6 +11,7 @@ resources:
   # Prometheus instance resources
   - rbac.yaml
   - prometheus.yaml
+- additional-scrape-configs.yaml
   - service.yaml
   - configmap.yaml
   - prometheusrule.yaml

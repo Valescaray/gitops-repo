@@ -16,6 +16,9 @@ commonLabels:
 
 configMapGenerator:
   - name: grafana-dashboards-standard
+    options:
+      annotations:
+        argocd.argoproj.io/sync-options: Replace=true
     files:
       - dashboards/node-exporter-full.json
       - dashboards/k8s-cluster.json
