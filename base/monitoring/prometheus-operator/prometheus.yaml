@@ -6,6 +6,8 @@ metadata:
     app: prometheus
 spec:
   replicas: 2
+  scrapeInterval: "30s"
+  evaluationInterval: "30s"
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
