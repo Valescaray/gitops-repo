@@ -10,8 +10,11 @@ spec:
   evaluationInterval: "30s"
   serviceAccountName: prometheus
   serviceMonitorSelector: {}
+  serviceMonitorNamespaceSelector: {}
   podMonitorSelector: {}
+  podMonitorNamespaceSelector: {}
   ruleSelector: {}
+  ruleNamespaceSelector: {}
   resources:
     requests:
       memory: 400Mi

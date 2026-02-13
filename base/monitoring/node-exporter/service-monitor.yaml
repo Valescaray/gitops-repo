@@ -13,3 +13,10 @@ spec:
   endpoints:
   - port: metrics
     interval: 30s
+    relabelings:
+    - action: replace
+      sourceLabels: [__meta_kubernetes_pod_node_name]
+      targetLabel: instance
+    - action: replace
+      sourceLabels: [__meta_kubernetes_pod_node_name]
+      targetLabel: kubernetes_io_hostname
