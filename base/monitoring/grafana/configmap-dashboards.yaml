@@ -12,9 +12,13 @@ data:
       type: prometheus
       uid: prometheus
       access: proxy
+      orgId: 1                   
       url: http://prometheus-operated.monitoring.svc.cluster.local:9090
       isDefault: true
-      editable: false
+      editable: true
+      version: 1                 
+      jsonData:
+         httpMethod: POST
 ---
 apiVersion: v1
 kind: ConfigMap
