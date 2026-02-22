@@ -39,7 +39,7 @@ spec:
               name: grafana-secrets
               key: admin-password
         - name: GF_INSTALL_PLUGINS
-          value: "grafana-piechart-panel,grafana-clock-panel"
+          value: "grafana-clock-panel"
         volumeMounts:
         - name: grafana-storage
           mountPath: /var/lib/grafana
